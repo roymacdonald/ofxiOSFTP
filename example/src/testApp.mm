@@ -132,7 +132,7 @@ void testApp::update(){
                 cameraImg = NULL;
             }
             
-            UIImage *imageToCopy = [camera->getImagePicker() getUIImage];
+            UIImage *imageToCopy = camera->getUIImage();
             UIGraphicsBeginImageContext(imageToCopy.size);
             [imageToCopy drawInRect:CGRectMake(0, 0, imageToCopy.size.width, imageToCopy.size.height)];
             cameraImg = [UIGraphicsGetImageFromCurrentImageContext() retain];
@@ -172,7 +172,7 @@ void testApp::reset(){
 //--------------------------------------------------------------
 void testApp::takePhoto(){
     if(!camera) {
-        camera = new ofxiPhoneImagePicker();
+        camera = new ofxiOSImagePicker();
         camera->setMaxDimension(MAX(ofGetWidth(), ofGetHeight())); // max the photo taken at the size of the screen.
     }
        camera->openCamera(0); //this line opens the ios device camera. 0 = back camera. 1 = front camera

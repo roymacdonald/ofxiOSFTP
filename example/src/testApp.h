@@ -56,7 +56,7 @@ public:
     void reset();
     
     bool fotoLista;
-    ofxiPhoneImagePicker * camera;
+    ofxiOSImagePicker * camera;
     UIImage * cameraImg;
     ofImage	photo;
     
