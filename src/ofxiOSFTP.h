@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 micasa. All rights reserved.
 //
 
+#pragma once
 #import <UIKit/UIKit.h>
 #include "WhiteRaccoon.h"
 #include "ofMain.h"
 
-#pragma once
 //*
 @interface ofxiOSFTPDelegate : NSObject<WRRequestDelegate> 
 {
@@ -44,8 +44,6 @@ public:
 private:
     string user, pass, host;
     ofxiOSFTPDelegate * whiteRaccoon;
-	
-
 };
 
 
@@ -59,19 +57,6 @@ public:
 
 extern ofEvent<ofxiOSFTPEvent>ofxiOSFTPEventDispatcher;
 
-
-
-/*
- 
- typedef enum {
- kWRUploadRequest,
- kWRDownloadRequest,
- kWRDeleteRequest,
- kWRCreateDirectoryRequest,
- kWRListDirectoryRequest
- } WRRequestTypes;
-
-//*/
 
 
 

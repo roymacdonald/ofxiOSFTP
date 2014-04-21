@@ -48,7 +48,6 @@ void ofxiOSFTP::uploadUIImage(UIImage * img, string remotePath){
     
     if(self = [super init]){			
         
-        
         self->host = [NSString stringWithString:h];
         self->user = [NSString stringWithString:u];
         self->pass = [NSString stringWithString:p];
@@ -63,14 +62,12 @@ void ofxiOSFTP::uploadUIImage(UIImage * img, string remotePath){
 - (void) listDirectoryContents{
     WRRequestListDirectory * listDir = [[WRRequestListDirectory alloc] init];
     listDir.delegate = self;
-    
-    
+        
     listDir.path = @"/";
     
     listDir.hostname = self->host;
     listDir.username = self->user;
     listDir.password = self->pass;
-    
     
     [listDir start];
     
@@ -101,8 +98,7 @@ void ofxiOSFTP::uploadUIImage(UIImage * img, string remotePath){
     [self upload:ourImageData remotePath:path];   
 }
 
-- (void) upload: (NSData *)data remotePath:(NSString *)remote {
-    
+- (void) upload: (NSData *)data remotePath:(NSString *)remote {    
     WRRequestUpload * upload = [[WRRequestUpload alloc] init];
     upload.delegate = self;
     
