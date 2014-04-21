@@ -9,15 +9,15 @@
 
 #define MARGENES_button 10
 #define TEXTO_button_ENVIAR "Finalizar"
-#define TEXTO_REGISTRADO "Gracias por\nparticipar\nen el primer\nMapping\nInteractivo de\nDentyne\nby Trident."
+#define TEXTO_REGISTRADO "Gracias por\nparticipar."
 
 #define ANCHO_TEXTO 100
 #define ALTO_TEXTO 40
 #define ESPACIADO_TEXTO 25
 #define CUANTOS_TEXTOS 3
-#define FTP_HOST "Roy-Macdonalds-MacBook-Pro.local"
-#define FTP_USER "roy"
-#define FTP_PASS "panopticon" 
+#define FTP_HOST "192.168.0.10"
+#define FTP_USER "user"
+#define FTP_PASS "pass" 
 
 #define UPLOAD_DIR "/" //this is the default path where files are uploaded. This is relative to the home dir
 
