@@ -20,6 +20,7 @@
 }    
 -(id) init: (NSString *) h userName:(NSString *) u password:(NSString *)p;
 -(void) upload:(NSData *)data  remotePath:(NSString *)remote;
+-(void) uploadFile:(NSString *)localFilePath  remotePath:(NSString *)remoteFilePath;
 -(void) requestCompleted:(WRRequest *) request;
     
 -(void) requestFailed:(WRRequest *) request;    

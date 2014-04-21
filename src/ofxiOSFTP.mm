@@ -18,7 +18,7 @@ ofxiOSFTP::~ofxiOSFTP(){
 }
 
 void ofxiOSFTP::upload(string localFile, string remotePath){
-    //   [whiteRaccoon upload: [NSString stringWithCString:localFile.c_str()] remotePath:[NSString stringWithCString:remotePath.c_str()]];
+       [whiteRaccoon uploadFile: [NSString stringWithCString:localFile.c_str()] remotePath:[NSString stringWithCString:remotePath.c_str()]];
 }
 void ofxiOSFTP::list(){
     [whiteRaccoon listDirectoryContents];
@@ -97,7 +97,13 @@ void ofxiOSFTP::uploadUIImage(UIImage * img, string remotePath){
     NSLog(@" %f %f", img.size.width, img.size.height);
     [self upload:ourImageData remotePath:path];   
 }
-
+-(void) uploadFile:(NSString *)localFilePath  remotePath:(NSString *)remoteFilePath{
+	if([[NSFileManager defaultManager] fileExistsAtPath:localFilePath]){
+		[self upload: [[NSFileManager defaultManager] contentsAtPath:localFilePath] remotePath:remoteFilePath];		
+	}else{
+		NSLog(@"File does not exist.");
+	}
+}
 - (void) upload: (NSData *)data remotePath:(NSString *)remote {    
     WRRequestUpload * upload = [[WRRequestUpload alloc] init];
     upload.delegate = self;
@@ -110,18 +116,14 @@ void ofxiOSFTP::uploadUIImage(UIImage * img, string remotePath){
      upload.username = self->user;
      upload.password = self->pass;
      
-     /*
-    upload.hostname = @"Roy-Macdonalds-MacBook-Pro.local";
-    upload.username = @"roy";
-    upload.password = @"panopticon";
-    //*/
+     
     //we set our data
     
     upload.sentData = data;
     
     upload.path =  remote;
-    cout   << [ upload.path UTF8String] << endl;
-    // @"/space.jpg";
+  // cout   << [ upload.path UTF8String] << endl;
+   
     
     //we start the request
     [upload start];
